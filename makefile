@@ -7,3 +7,4 @@ dfa: $(OBJ) main.c
 	yasm -f elf64 -g dwarf2 $< -o $@
 clean:
 	rm -f dfa *.o
+./
