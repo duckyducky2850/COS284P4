@@ -2,8 +2,6 @@
 ;
 ; bool simulateDfa(DFA* dfa, const char* input)
 ;
-; Reference C:
-;
 ; bool simulateDfa(DFA* dfa, const char* input) {
 ;     int current   = dfa->startState;
 ;     Transition* t = dfa->transitions;
@@ -25,7 +23,7 @@
 
 global simulateDfa
 
-; ---- struct layouts (same as task1.asm; each file is assembled alone) ----
+; struct files, each assembled seperately
 struc State
   .id           resd 1      ; offset 0
   .isAccepting  resb 1      ; offset 4
@@ -50,8 +48,7 @@ endstruc
 
 section .text
 
-; Leaf function: no calls, so only caller-saved registers are used
-; and no prologue or stack alignment is needed.
+; Leaf function: no calls, no stack etc needed
 ;   rdi = dfa          rsi = p (input cursor)
 ;   r8d = current      r9  = transitions base
 ;   r10d = numTransitions
